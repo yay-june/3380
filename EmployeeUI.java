@@ -1,7 +1,7 @@
 package sixgolfballs;
 
 public class EmployeeUI {
-    public String employeeID;
+    public String userID;
             
             
     public EmployeeUI()
@@ -14,8 +14,9 @@ public class EmployeeUI {
         
     }
     
-    public void setTaskAsComplete(taskName, employeeID)
+    public void setTaskAsComplete(taskName, userID)
     {
+        String completedBy = userID.name;
         if (taskName.isComplete == false)
         {
             taskName.isComplete = true;
@@ -23,6 +24,7 @@ public class EmployeeUI {
         else
         {
             System.out.println("Task is already complete.");
+
         }
     }
 }
