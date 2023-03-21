@@ -1,0 +1,3 @@
+package sixgolfballs;
+
+//abstract methods from view to display appropriate screens from the slider/drag and drop
