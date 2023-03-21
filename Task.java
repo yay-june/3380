@@ -15,6 +15,14 @@ public class Task
         this.isComplete = false;
     }
     
+    public Task()
+    {
+        this.taskName = "";
+        this.taskDescription = "";
+        this.completeByDate = "";
+        this.isComplete = false;
+    }
+    
     public void tasksetcompleteByDate(String completeByDate)
     {
         this.completeByDate = completeByDate;
@@ -35,8 +43,8 @@ public class Task
         this.isComplete = isComplete;
     }
     
-    public String toString()
+    public String ToString()
     {
-        return "Task: "+taskName+"\nDescription: "+taskDescription+"\nComplete by: "+completeByDate+"\nStatus: "+isComplete;
+        System.out.println("Task: "+taskName+"\nDescription: "+taskDescription+"\nComplete by: "+completeByDate+"\nStatus: "+isComplete);
     }
 }
