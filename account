@@ -5,11 +5,11 @@ package sixgolfballs;
 //it should also have additional private variables like ID number, name, etc.
 
 public class account{
-  private boolean type; //false would be employee true would be employer
+  private String type; 
   private String name;
   private int id;
   
-  public account(String name, int id, boolean type)
+  public account(String name, int id, String type)
   {
       this.name=name;
       this.id=id;
@@ -20,7 +20,7 @@ public class account{
   {
       this.name="";
       this.id=-1;
-      this.type=false;
+      this.type="";
   }
   
   
