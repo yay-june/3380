@@ -12,8 +12,12 @@ public class Task
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.completeByDate = completeByDate;
-        
         this.isComplete = false;
+    }
+    
+    public void tasksetcompleteByDate(String completeByDate)
+    {
+        this.completeByDate = completeByDate;
     }
     
     public void taskSetName(String taskName)
@@ -31,7 +35,7 @@ public class Task
         this.isComplete = isComplete;
     }
     
-    public String taskToString()
+    public String ToString()
     {
         return "string";
     }
