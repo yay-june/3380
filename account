@@ -3,3 +3,25 @@ package sixgolfballs;
 //abstract methods from view to display appropriate screens from the slider/drag and drop
 //have user ID object with boolean employee or employer and use that to determine the screens
 //it should also have additional private variables like ID number, name, etc.
+
+public class account{
+  private boolean type; //false would be employee true would be employer
+  private String name;
+  private int id;
+  
+  public account(String name, int id, boolean type)
+  {
+      this.name=name;
+      this.id=id;
+      this.type=type;
+  }
+  
+  public account()
+  {
+      this.name="";
+      this.id=-1;
+      this.type=false;
+  }
+  
+  
+}
