@@ -37,6 +37,6 @@ public class Task
     
     public String ToString()
     {
-        return "string";
+        System.out.println("Task: "+taskName+"\nDescription: "+taskDescription+"\nComplete by: "+completeByDate+"\nStatus: "+isComplete);
     }
 }
