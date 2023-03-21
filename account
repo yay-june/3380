@@ -1,3 +1,5 @@
 package sixgolfballs;
 
 //abstract methods from view to display appropriate screens from the slider/drag and drop
+//have user ID object with boolean employee or employer and use that to determine the screens
+//it should also have additional private variables like ID number, name, etc.
