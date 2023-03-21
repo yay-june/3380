@@ -35,8 +35,8 @@ public class Task
         this.isComplete = isComplete;
     }
     
-    public String ToString()
+    public String toString()
     {
-        System.out.println("Task: "+taskName+"\nDescription: "+taskDescription+"\nComplete by: "+completeByDate+"\nStatus: "+isComplete);
+        return "Task: "+taskName+"\nDescription: "+taskDescription+"\nComplete by: "+completeByDate+"\nStatus: "+isComplete;
     }
 }
