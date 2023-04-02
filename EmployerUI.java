@@ -14,6 +14,52 @@ public class EmployerUI
 }
 
 Loc:
+package gui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.CardLayout;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.BoxLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.awt.GridLayout;
+import javax.swing.SwingConstants;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Font;
+import javax.swing.JToggleButton;
+
+public class App extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table;
+	private JTable table_1;
+	private JTextField textField;
+	private JTextField textField_3;
+	private JTextField txtWelcomeEmployer;
+	private JTable table_2;
+	private JTable table_3;
+	private JTextField txtPropertyOfSixgolfballs;
+
+	/**
+	 * Launch the application.
+	 */
 JPanel Employer = new JPanel();
 		contentPane.add(Employer, "name_77521355317451");
 		Employer.setLayout(null);
