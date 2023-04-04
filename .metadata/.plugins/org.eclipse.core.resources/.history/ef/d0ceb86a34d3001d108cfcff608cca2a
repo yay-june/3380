@@ -1,0 +1,142 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class ChecklistPanel extends JPanel {
+
+	private boolean menuVisible;
+    private JLabel menuLabel;
+    private JPanel menuPanel;
+    private JScrollPane menuScrollPane;
+    private JList<String> menuList;
+    private DefaultListModel<String> menuListModel;
+    private JPanel menuButtonPanel;
+    private JButton addTaskButton;
+    private JButton removeTaskButton;
+    private boolean isMenuOpen;
+    private JPanel taskListPanel;
+    private DefaultListModel<String> taskListModel;
+    private JList<String> taskList;
+    private JScrollPane taskListScrollPane;
+    private JPanel taskPanel;
+    private ArrayList<JCheckBox> taskCheckBoxes;
+    private JPanel buttonPanel;
+    private JButton completeTaskButton;
+    private CompletedTaskPanel completedTaskPanel;
+
+    public ChecklistPanel() {
+        setLayout(new BorderLayout());
+
+        // Initialize menu components
+        menuVisible = false;
+        menuLabel = new JLabel("Tasks");
+        menuLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        add(menuLabel, BorderLayout.NORTH);
+
+        menuPanel = new JPanel();
+        menuPanel.setLayout(new BorderLayout());
+
+        menuListModel = new DefaultListModel<String>();
+        menuList = new JList<String>(menuListModel);
+        menuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        menuScrollPane = new JScrollPane(menuList);
+        menuPanel.add(menuScrollPane, BorderLayout.CENTER);
+
+        menuButtonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        addTaskButton = new JButton("Add Task");
+        removeTaskButton = new JButton("Remove Task");
+        menuButtonPanel.add(addTaskButton);
+        menuButtonPanel.add(removeTaskButton);
+        menuPanel.add(menuButtonPanel, BorderLayout.SOUTH);
+
+        // Add menu panel to the main panel
+        add(menuPanel, BorderLayout.WEST);
+
+        // Add listeners to the buttons
+        addTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String taskName = JOptionPane.showInputDialog("Enter task name:");
+                if (taskName != null && !taskName.isEmpty()) {
+                    menuListModel.addElement(taskName);
+                }
+            }
+        });
+
+        removeTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = menuList.getSelectedIndex();
+                if (selectedIndex != -1) {
+                    menuListModel.remove(selectedIndex);
+                }
+            }
+        });
+     // Task panel
+        taskPanel = new JPanel(new GridBagLayout());
+        taskCheckBoxes = new ArrayList<JCheckBox>();
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.NORTHWEST;
+        gbc.weightx = 1.0;
+
+        for (int i = 0; i < 5; i++) {
+            JCheckBox taskCheckBox = new JCheckBox();
+            taskCheckBoxes.add(taskCheckBox);
+
+            JLabel taskLabel = new JLabel("Task " + (i + 1));
+            gbc.gridx = 0;
+            gbc.weightx = 0.0;
+            gbc.insets = new Insets(10, 10, 10, 0);
+            taskPanel.add(taskLabel, gbc);
+
+            gbc.gridx = 1;
+            gbc.weightx = 1.0;
+            gbc.insets = new Insets(10, 10, 10, 10);
+            taskPanel.add(taskCheckBox, gbc);
+
+            gbc.gridy++;
+        }
+
+        // Button panel
+        buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        completeTaskButton = new JButton("Complete Selected Tasks");
+        completeTaskButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < taskListModel.size(); i++) {
+                    if (taskList.isSelectedIndex(i)) {
+                        String taskName = taskListModel.get(i);
+                        completedTaskPanel.addCompletedTask(taskName);
+                        taskListModel.remove(i);
+                        i--;
+                    }
+                }
+            }
+        });
+        buttonPanel.add(completeTaskButton);
+
+        // Add components to ChecklistPanel
+        add(menuPanel, BorderLayout.WEST);
+        add(taskPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
+    }
+        // toggleMenu
+        public void toggleMenu() {
+            if (menuVisible) {
+                // Hide the menu
+                menuPanel.setVisible(false);
+                taskScrollPane.setPreferredSize(new Dimension(600, 500));
+                menuVisible = false;
+            } else {
+                // Show the menu
+                menuPanel.setVisible(true);
+                taskScrollPane.setPreferredSize(new Dimension(400, 500));
+                menuVisible = true;
+            }
+            revalidate();
+            repaint();
+        }
+}
