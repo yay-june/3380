@@ -47,7 +47,8 @@ public class UserProfile implements Serializable {
 		return userType;
 	}
 	
-	public String toString() {
+	public String toString() 
+	{
 		return "Name: " + userName + "\nType: " + userType;
 	}
 	

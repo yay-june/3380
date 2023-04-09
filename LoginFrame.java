@@ -1,5 +1,4 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,7 +12,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class LoginFrame extends JFrame {
-
 	private JPanel contentPane;
 	private JTextField textField;
 
@@ -29,7 +27,7 @@ public class LoginFrame extends JFrame {
 			}
 		});
 	}
-
+	
 	public LoginFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -90,6 +88,7 @@ public class LoginFrame extends JFrame {
 						EmployerUI newWindow = new EmployerUI(userName);
 						newWindow.setVisible(true);
 						setVisible(false);
+						
 						//EmployerUI newEmployerUI = new EmployerUI("Yellow");
 						//newEmployerUI.setVisible(true);
 					}

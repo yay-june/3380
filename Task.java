@@ -1,8 +1,10 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Task
+public class Task implements Serializable
 {
+	private static final long serialVersionUID = 1L;
     private String taskName;
     private String taskDescription;
     private LocalDateTime taskCreationDate;
@@ -53,7 +55,6 @@ public class Task
     
     public String toString()
     {
-        //System.out.println("Task: "+taskName+"\nDescription: "+taskDescription+"\nComplete by: "+completeByDate+"\nStatus: "+isComplete);
     	return String.format("%s - %s (%s)", taskName, taskDescription, taskCreationDate.format(DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' hh:mm a")));
     }
 }

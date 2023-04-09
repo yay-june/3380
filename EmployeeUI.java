@@ -28,7 +28,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class EmployeeUI extends JFrame {
-
     private JPanel contentPane;
     private TaskListPanel taskListPanel;
     private CompletedTaskPanel completedTaskPanel;
